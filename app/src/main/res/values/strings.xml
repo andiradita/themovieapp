@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">themovieapp</string>
+    <string name="splash_welcome_text">Welcome to the Movie App</string>
+    <string name="content_desc_image">movie image</string>
+    <string name="movie_title">movie title</string>
+    <string name="movie_description">movie description</string>
+    <string name="item_menu_discover">Home</string>
+    <string name="item_menu_search">Search</string>
+    <string name="item_menu_favorite">Favorite</string>
 </resources>
