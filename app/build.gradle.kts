@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -16,6 +17,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+        buildConfigField("String", "PHOTO_BASE_URL", "\"https://image.tmdb.org/t/p/w500/\"")
+        buildConfigField(
+            "String",
+            "API_KEY",
+            "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZThhNTIwZDRlN2ViZDQ1ZDg2NGQ3NjdiNTBmZjBhYSIsInN1YiI6IjU5NzJmMGRlYzNhMzY4NGJmYzAxYmVmNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bPMis-jII0zPZQKOKufzqf-3ABUYYMTjMuYN0VHcedM\""
+        )
     }
 
     buildTypes {
@@ -29,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,14 +53,14 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation ("androidx.annotation:annotation:1.7.1")
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation("androidx.annotation:annotation:1.7.1")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 
     //latest vesion https://github.com/square/retrofit.
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0") //Retrofit https://square.github.io/retrofit/ -
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0") //Gson -> json data to java or kotlin format
+    implementation("com.squareup.retrofit2:retrofit:2.11.0") //Retrofit https://square.github.io/retrofit/ -
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0") //Gson -> json data to java or kotlin format
 
     //Viewmodel and livedata -> https://developer.android.com/jetpack/androidx/releases/lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1") // ViewModel
