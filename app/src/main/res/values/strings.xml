@@ -7,4 +7,11 @@
     <string name="item_menu_discover">Home</string>
     <string name="item_menu_search">Search</string>
     <string name="item_menu_favorite">Favorite</string>
+    <string name="movie_genre">movie genre</string>
+    <string name="production_company">production company</string>
+
+    <string name="lorem_ipsum">In pellentesque massa placerat duis ultricies lacus sed turpis. Id volutpat lacus laoreet non curabitur. At auctor urna nunc id cursus metus aliquam eleifend. Cursus euismod quis viverra nibh cras pulvinar mattis nunc. Ultricies integer quis auctor elit sed vulputate mi sit. Fames ac turpis egestas integer. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Velit aliquet sagittis id consectetur purus. Mi ipsum faucibus vitae aliquet nec. Mattis enim ut tellus elementum sagittis vitae. Nam libero justo laoreet sit amet. Enim eu turpis egestas pretium aenean. Amet purus gravida quis blandit turpis cursus in. Cursus vitae congue mauris rhoncus aenean vel elit. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Aliquam ut porttitor leo a diam. Est ullamcorper eget nulla facilisi etiam. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Porta non pulvinar neque laoreet suspendisse.</string>
+    <string name="movie_genre_label">Movie Genre</string>
+    <string name="label_continue">Finish</string>
+
 </resources>
