@@ -35,5 +35,6 @@
     <string name="error_image">error image</string>
     <string name="no_data_review_available">No Data Review available</string>
     <string name="genre_settings">Genre Settings</string>
+    <string name="relase_date">relase date</string>
 
 </resources>

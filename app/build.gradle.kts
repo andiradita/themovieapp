@@ -58,12 +58,10 @@ dependencies {
     implementation("androidx.annotation:annotation:1.7.1")
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
-    //latest vesion https://github.com/square/retrofit.
-    implementation("com.squareup.retrofit2:retrofit:2.11.0") //Retrofit https://square.github.io/retrofit/ -
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0") //Gson -> json data to java or kotlin format
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
-    //Viewmodel and livedata -> https://developer.android.com/jetpack/androidx/releases/lifecycle
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1") // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
