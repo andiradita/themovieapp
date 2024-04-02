@@ -1,5 +1,6 @@
 package com.andiradita.themovieapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.andiradita.themovieapp.adapter.MovieListAdapter
 import com.andiradita.themovieapp.data.remote.LoadingState
 import com.andiradita.themovieapp.databinding.HomeFragmentBinding
+import com.andiradita.themovieapp.listeners.OnMovieClickListener
+import com.andiradita.themovieapp.ui.details.DetailActivity
 
 class HomeFragment : Fragment() {
 
@@ -42,6 +45,13 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         adapter = MovieListAdapter()
+        adapter?.onMovieClickListener(object : OnMovieClickListener {
+            override fun onMovieDetailClick(movieId: Int) {
+                val intent = Intent(this@HomeFragment.context, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.movieId, movieId)
+                startActivity(intent)
+            }
+        })
         layoutManager = GridLayoutManager(
             this.context, 2, GridLayoutManager.VERTICAL, false
         )

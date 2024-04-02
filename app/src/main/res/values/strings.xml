@@ -13,5 +13,21 @@
     <string name="lorem_ipsum">In pellentesque massa placerat duis ultricies lacus sed turpis. Id volutpat lacus laoreet non curabitur. At auctor urna nunc id cursus metus aliquam eleifend. Cursus euismod quis viverra nibh cras pulvinar mattis nunc. Ultricies integer quis auctor elit sed vulputate mi sit. Fames ac turpis egestas integer. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Velit aliquet sagittis id consectetur purus. Mi ipsum faucibus vitae aliquet nec. Mattis enim ut tellus elementum sagittis vitae. Nam libero justo laoreet sit amet. Enim eu turpis egestas pretium aenean. Amet purus gravida quis blandit turpis cursus in. Cursus vitae congue mauris rhoncus aenean vel elit. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Aliquam ut porttitor leo a diam. Est ullamcorper eget nulla facilisi etiam. Mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Porta non pulvinar neque laoreet suspendisse.</string>
     <string name="movie_genre_label">Movie Genre</string>
     <string name="label_continue">Finish</string>
+    <string name="img_movie_details">image movie details</string>
+    <string name="dummy_genre">Action - Horror - Documenter - Action - Horror - Documenter - Action - Horror - Documenter</string>
+    <string name="image_author">Image Author</string>
+    <string name="author_name">Author Name</string>
+    <string name="author_username">Author username</string>
+    <string name="label_review">Review</string>
+    <string name="read_more">Read More . . .</string>
+    <string name="release_date">release date</string>
+    <string name="english_indonesia">English - Indonesia</string>
+    <string name="label_spoken_language">Spoken Language</string>
+    <string name="dreamworks_animation">DreamWorks Animation</string>
+    <string name="label_production_company">Production Company</string>
+    <string name="movie_poster">movie poster</string>
+    <string name="play_trailer">play trailer</string>
+    <string name="image_play_youtube_trailer">image play youtube trailer</string>
+    <string name="check_trailer">Check Trailer</string>
 
 </resources>
