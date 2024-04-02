@@ -1,4 +1,4 @@
-package com.andiradita.themovieapp.ui.home
+package com.andiradita.themovieapp.ui.review
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,48 +6,44 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.andiradita.themovieapp.data.remote.LoadingState
 import com.andiradita.themovieapp.data.repository.MovieRepository
-import com.andiradita.themovieapp.model.MovieResponse
+import com.andiradita.themovieapp.model.ReviewResponse
 import com.andiradita.themovieapp.utils.Constants
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
-
+class ReviewViewModel : ViewModel() {
     private val repository: MovieRepository = MovieRepository()
-    private var movieResponse: MovieResponse? = null
-    private var _discoverMovieResponse = MutableLiveData<LoadingState<MovieResponse?>>()
-    var discoverMovieResponse: LiveData<LoadingState<MovieResponse?>> = _discoverMovieResponse
-    var page = 1
+    private var page = 1
+    private var reviewResponse: ReviewResponse? = null
+    private var _movieReviewResponse = MutableLiveData<LoadingState<ReviewResponse?>>()
+    var movieReviewResponse: LiveData<LoadingState<ReviewResponse?>> = _movieReviewResponse
 
-
-    fun getDiscoverMovie(genreIds: String) {
+    fun getReviewMovie(id: Int) {
         viewModelScope.launch {
             try {
-                _discoverMovieResponse.postValue(LoadingState.Loading)
-                val response = repository.getDiscoverMovie(Constants.LANGUAGE_EN, page, genreIds)
-                _discoverMovieResponse.postValue(discoverResponse(response))
+                _movieReviewResponse.postValue(LoadingState.Loading)
+                val response = repository.getReviewMovie(Constants.LANGUAGE_EN, page, id.toString())
+                _movieReviewResponse.postValue(handleReviewResponse(response))
             } catch (e: Exception) {
-                _discoverMovieResponse.postValue(LoadingState.Error(LoadingState.Error.message(e)))
+                _movieReviewResponse.postValue(LoadingState.Error(LoadingState.Error.message(e)))
             }
-
         }
     }
 
-    private fun discoverResponse(response: Response<MovieResponse>): LoadingState<MovieResponse?> {
+    private fun handleReviewResponse(response: Response<ReviewResponse>): LoadingState<ReviewResponse?> {
         return if (response.isSuccessful) {
             response.body()?.let {
-                if (page == 1) movieResponse = null
                 page++;
-                if (movieResponse == null) {
-                    movieResponse = it
+                if (reviewResponse == null) {
+                    reviewResponse = it
                 } else {
-                    val oldValue = movieResponse?.results
+                    val oldValue = reviewResponse?.results
                     val newValue = it.results
                     oldValue?.addAll(newValue)
                 }
             }
-            LoadingState.Success(movieResponse ?: response.body())
+            LoadingState.Success(reviewResponse ?: response.body())
         } else LoadingState.Error(
             try {
                 response.errorBody()?.string()?.let {
@@ -58,4 +54,5 @@ class HomeViewModel : ViewModel() {
             } as String
         )
     }
+
 }

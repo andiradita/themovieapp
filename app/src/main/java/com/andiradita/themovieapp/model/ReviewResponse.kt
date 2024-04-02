@@ -17,7 +17,7 @@ data class ReviewResponse(
     val totalPages: Int? = 0,
 
     @field:SerializedName("results")
-    val results: List<ReviewResult>? = null,
+    val results: MutableList<ReviewResult>,
 
     @field:SerializedName("total_results")
     val totalResults: Int? = 0

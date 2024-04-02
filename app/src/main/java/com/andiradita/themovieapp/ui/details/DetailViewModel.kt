@@ -7,7 +7,7 @@ import com.andiradita.themovieapp.data.remote.LoadingState
 import com.andiradita.themovieapp.data.repository.MovieRepository
 import com.andiradita.themovieapp.model.DetailMovieResponse
 import com.andiradita.themovieapp.model.ReviewResponse
-import retrofit2.HttpException
+import com.andiradita.themovieapp.utils.Constants
 
 class DetailViewModel : ViewModel() {
     private val repository: MovieRepository = MovieRepository()
@@ -15,20 +15,20 @@ class DetailViewModel : ViewModel() {
     fun getDetailMovie(id: Int): LiveData<LoadingState<DetailMovieResponse>> = liveData {
         emit(LoadingState.Loading)
         try {
-            val response = repository.getDetailMovie("en", id.toString())
+            val response = repository.getDetailMovie(Constants.LANGUAGE_EN, id.toString())
             emit(LoadingState.Success(response))
-        } catch (e: HttpException) {
-            e.response()?.errorBody()?.string()?.let { LoadingState.Error(it) }?.let { emit(it) }
+        } catch (e: Exception) {
+            emit(LoadingState.Error(LoadingState.Error.message(e)))
         }
     }
 
     fun getReviewMovie(id: Int): LiveData<LoadingState<ReviewResponse?>?> = liveData {
         emit(LoadingState.Loading)
         try {
-            val response = repository.getReviewMovie("en", page, id.toString())
-            emit(LoadingState.Success(response))
-        } catch (e: HttpException) {
-            e.response()?.errorBody()?.string()?.let { LoadingState.Error(it) }?.let { emit(it) }
+            val response = repository.getReviewMovie(Constants.LANGUAGE_EN, page, id.toString())
+            emit(LoadingState.Success(response.body()))
+        } catch (e: Exception) {
+            emit(LoadingState.Error(LoadingState.Error.message(e)))
         }
     }
 }

@@ -19,6 +19,7 @@
         <activity android:name=".ui.details.DetailActivity" />
         <activity android:name=".ui.trailer.PlayTrailerActivity" />
         <activity android:name=".ui.trailer.TrailerActivity" />
+        <activity android:name=".ui.review.ReviewActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"

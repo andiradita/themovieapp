@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">themovieapp</string>
+    <string name="app_name">The Cinemax</string>
     <string name="splash_welcome_text">Welcome to the Movie App</string>
     <string name="content_desc_image">movie image</string>
     <string name="movie_title">movie title</string>
     <string name="movie_description">movie description</string>
-    <string name="item_menu_discover">Home</string>
-    <string name="item_menu_search">Search</string>
-    <string name="item_menu_favorite">Favorite</string>
+    <string name="item_menu_discover">Discover</string>
+    <string name="item_menu_now_playing">Now Playing</string>
+    <string name="item_menu_top_rated">Top Rated</string>
     <string name="movie_genre">movie genre</string>
     <string name="production_company">production company</string>
 
@@ -29,5 +29,11 @@
     <string name="play_trailer">play trailer</string>
     <string name="image_play_youtube_trailer">image play youtube trailer</string>
     <string name="check_trailer">Check Trailer</string>
+    <string name="click_more_detail">More Detail</string>
+    <string name="an_error_occurred">An error occurred.</string>
+    <string name="try_again">Try Again</string>
+    <string name="error_image">error image</string>
+    <string name="no_data_review_available">No Data Review available</string>
+    <string name="genre_settings">Genre Settings</string>
 
 </resources>

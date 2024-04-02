@@ -1,11 +1,12 @@
 package com.andiradita.themovieapp.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.andiradita.themovieapp.BuildConfig
 import com.andiradita.themovieapp.R
@@ -15,14 +16,18 @@ import com.bumptech.glide.request.RequestOptions
 
 class ReviewAdapter() :
     RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
-    private val data = ArrayList<ReviewResult>()
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setReview(list: List<ReviewResult>) {
-        this.data.clear()
-        this.data.addAll(list)
-        notifyDataSetChanged()
+    private val differCallback = object : DiffUtil.ItemCallback<ReviewResult>() {
+        override fun areItemsTheSame(oldItem: ReviewResult, newItem: ReviewResult): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: ReviewResult, newItem: ReviewResult): Boolean {
+            return oldItem == newItem
+        }
     }
+
+    val differ = AsyncListDiffer(this, differCallback)
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvAuthor: TextView
@@ -46,12 +51,12 @@ class ReviewAdapter() :
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return differ.currentList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            with(data[position]) {
+            with(differ.currentList[position]) {
                 tvAuthor.text = authorDetails?.name
                 tvContent.text = content
                 tvCreatedAt.text = createdAt
