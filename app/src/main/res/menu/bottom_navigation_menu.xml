@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_now_playing"
+        android:title="@string/item_menu_now_playing"
+        android:icon="@drawable/ic_youtube_play" />
+    <item
+        android:id="@+id/navigation_discover"
         android:title="@string/item_menu_discover"
         android:icon="@drawable/ic_menu_home" />
     <item
-        android:id="@+id/navigation_search"
-        android:title="@string/item_menu_search"
-        android:icon="@drawable/ic_menu_search" />
-    <item
-        android:id="@+id/navigation_favorite"
-        android:title="@string/item_menu_favorite"
-        android:icon="@drawable/ic_menu_favorite" />
+        android:id="@+id/navigation_top_rated"
+        android:title="@string/item_menu_top_rated"
+        android:icon="@drawable/ic_star" />
 </menu>

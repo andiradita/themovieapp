@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.andiradita.themovieapp.MainActivity
 import com.andiradita.themovieapp.databinding.ActivitySplashBinding
 import com.andiradita.themovieapp.ui.genre.GenreActivity
+import com.andiradita.themovieapp.utils.PreferencesHelper
 
 class SplashActivity : AppCompatActivity() {
 
@@ -18,7 +20,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, GenreActivity::class.java))
+            val checkGenre = PreferencesHelper.getGenreList(this@SplashActivity)
+            if (checkGenre.isEmpty()) {
+                startActivity(Intent(this, GenreActivity::class.java))
+            } else {
+                startActivity(Intent(this, MainActivity::class.java))
+            }
             finish()
         }, 3000)
     }

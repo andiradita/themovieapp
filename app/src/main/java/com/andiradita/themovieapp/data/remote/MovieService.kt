@@ -39,7 +39,7 @@ interface MovieService {
         @Path("movie_id") movieId: String,
         @Query("language") lang: String?,
         @Query("page") page: Int,
-    ): ReviewResponse
+    ): Response<ReviewResponse>
 
     @GET("movie/{movie_id}/videos")
     suspend fun getTrailerMovie(

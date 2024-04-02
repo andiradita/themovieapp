@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.andiradita.themovieapp.R
 import com.andiradita.themovieapp.databinding.SearchFragmentBinding
 
-class SearchFragment : Fragment() {
+class NowPlayingFragment : Fragment() {
 
     private var _binding: SearchFragmentBinding? = null
     private val binding get() = _binding!!
@@ -20,18 +19,19 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
+        val nowPlayingViewModel =
+            ViewModelProvider(this).get(NowPlayingViewModel::class.java)
 
         _binding = SearchFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.tvDescription
-        searchViewModel.text.observe(viewLifecycleOwner) {
+        nowPlayingViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
