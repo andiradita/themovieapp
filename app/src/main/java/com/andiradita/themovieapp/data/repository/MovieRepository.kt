@@ -18,4 +18,10 @@ class MovieRepository() {
 
     suspend fun getTrailerMovie(id: String) =
         client.getTrailerMovie(auth = BuildConfig.API_KEY, id)
+
+    suspend fun getNowPlayingMovie(lang: String, page: Int) =
+        client.getNowPlayingMovie(auth = BuildConfig.API_KEY, lang, page)
+
+    suspend fun getTopRatedMovie(lang: String, page: Int) =
+        client.getTopRatedMovie(auth = BuildConfig.API_KEY, lang, page)
 }

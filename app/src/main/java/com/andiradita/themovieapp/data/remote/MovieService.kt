@@ -4,7 +4,9 @@ import com.andiradita.themovieapp.model.DetailMovieResponse
 import com.andiradita.themovieapp.model.MovieGenreResponse
 import com.andiradita.themovieapp.model.MovieResponse
 import com.andiradita.themovieapp.model.MovieTrailerResponse
+import com.andiradita.themovieapp.model.NowPlayingResponse
 import com.andiradita.themovieapp.model.ReviewResponse
+import com.andiradita.themovieapp.model.TopRatedResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -46,4 +48,18 @@ interface MovieService {
         @Header("Authorization") auth: String,
         @Path("movie_id") movieId: String
     ): MovieTrailerResponse
+
+    @GET("movie/now_playing")
+    suspend fun getNowPlayingMovie(
+        @Header("Authorization") auth: String,
+        @Query("language") lang: String?,
+        @Query("page") page: Int,
+    ): NowPlayingResponse
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovie(
+        @Header("Authorization") auth: String,
+        @Query("language") lang: String?,
+        @Query("page") page: Int,
+    ): TopRatedResponse
 }

@@ -16,5 +16,9 @@ class Constants {
         const val TITLE_MENU_GENRE = "Genre Movie"
         const val TITLE_MENU_FAVORITE = "Favorite"
         const val TITLE_MENU_POPULAR = "Popular"
+        const val TOP_RATED = "Top Rated"
+        const val NOW_PLAYING = "Now Playing"
+        const val LABEL_POPULARITY = "Popularity : "
+        const val LABEL_RELEASED_AT = "Released at : "
     }
 }
