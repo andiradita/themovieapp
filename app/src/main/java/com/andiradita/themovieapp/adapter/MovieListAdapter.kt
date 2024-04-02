@@ -10,20 +10,17 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.andiradita.themovieapp.BuildConfig
 import com.andiradita.themovieapp.R
+import com.andiradita.themovieapp.listeners.OnMovieClickListener
 import com.andiradita.themovieapp.model.MovieResult
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class MovieListAdapter() :
     RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
-//    private val data = ArrayList<MovieResult>()
-
-//    @SuppressLint("NotifyDataSetChanged")
-//    fun setMovies(list: List<MovieResult>) {
-//        this.data.clear()
-//        this.data.addAll(list)
-//        notifyDataSetChanged()
-//    }
+    private lateinit var onMovieClickLister: OnMovieClickListener
+    fun onMovieClickListener(onMovieClickListener: OnMovieClickListener) {
+        this.onMovieClickLister = onMovieClickListener
+    }
 
     private val differCallback = object : DiffUtil.ItemCallback<MovieResult>() {
         override fun areItemsTheSame(oldItem: MovieResult, newItem: MovieResult): Boolean {
@@ -74,6 +71,7 @@ class MovieListAdapter() :
                             .error(R.drawable.no_image_available)
                     )
                     .into(image)
+                itemView.setOnClickListener { id?.let { onMovieClickLister.onMovieDetailClick(it) } }
             }
         }
     }
